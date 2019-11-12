@@ -1,25 +1,27 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import styled from 'styled-components/native'
+import AppContainer from './src/navigation/MainNavigation'
+
 
 if(__DEV__) {
   import('./src/ReactotronConfig').then(() => console.log('Reactotron Configured'))
 }
 
-const App = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: "center" }}>
-      <Text>Bar na Tela</Text>
-    </View>
-  )
+
+const Container = styled.View`
+    flex: 1;
+`
+
+
+function App() {
+    return (
+      <Container>
+        <AppContainer />
+      </Container>
+    )
 }
 
 
+export default App
 
-export default App;
+
