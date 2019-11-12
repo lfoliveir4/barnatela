@@ -8,14 +8,17 @@ import { createAppContainer } from 'react-navigation';
 
 import Category from '../screen/Category'
 import Drinks from '../screen/Drinks'
+import Ingredient from '../screen/Ingredient'
 
 const HomeStack = createStackNavigator(
   {
     Home: Category,
     Drink: Drinks,
+    Ingredients: Ingredient
   },
   {
-    initialRouteName: "Home"
+    initialRouteName: "Ingredients",
+    //headerMode: "none",
   },
   
 );
