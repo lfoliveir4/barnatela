@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, ScrollView, Image, ImageBackground } from 'react-native'
+import { Text, View, ScrollView, Image, ImageBackground, Button, StyleSheet } from 'react-native'
 
-import { Item, TextButton, Container } from './styles'
+import { Item, TextButton, Container,} from './styles'
+import colors from '../../styles/colors'
 
 import api from '../../services/api'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+
+
+function Separator() {
+   return <View style={{ marginVertical: 8, borderBottomColor: '#737373', borderBottomWidth: StyleSheet.hairlineWidth,}} />
+}
 
 export default function Drinks({ navigation }) {
    const [data, setData] = useState([])
    const getDrinks = navigation.getParam("itemCategory")
-
+   
    useEffect(() => {
       const fetchData = async () => {
         const result = await api.get(`/1/filter.php?c=${getDrinks}`)
@@ -16,6 +23,7 @@ export default function Drinks({ navigation }) {
       };
       fetchData();
     }, []);
+    
 
    return(
       <ScrollView style={{ flex: 1, }}>
@@ -24,14 +32,25 @@ export default function Drinks({ navigation }) {
                   <Item>
                         <View style={{ marginTop: 20, marginVertical: 10, justifyContent: 'center', alignItems: 'center' }}>
                            <Image
-                           style={{ width: 66, height: 58, }}
+                           style={{ width: 100, height: 100, borderRadius: 50 }}
                            source={{ uri: item.strDrinkThumb}}
                            />
                         </View>
                         <TextButton>{item.strDrink}</TextButton>
-               </Item>
+                        <Separator />
+                        <Button color="#c9d1d3" onPress={() => navigation.navigate("Ingredients", {ingredientId: item.strDrink })} style={{ paddingTop: 50 }} title="Ingredientes" />
+                  </Item>
             ))}
          </Container>
       </ScrollView>
    ) 
+}
+
+Drinks.navigationOptions = {
+   headerTitle: "Drinks",
+   headerStyle: {
+      backgroundColor: colors.lightgreen,
+    },
+   headerTintColor: colors.white,
+   
 }

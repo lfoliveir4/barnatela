@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, ScrollView, Image} from 'react-native'
+import colors from '../../styles/colors'
 
 import api from '../../services/api'
-
-
-
 
 import { Container, ContainerDrinks, TitleDrink, TitleIngredient, TextIngredient } from './styles'
 
 
 export default function Ingredients({ navigation }) {
    const [data, setData] = useState([])
-   //const getDetails = navigation.getParam("itemCategory")
+   const getDetails = navigation.getParam("ingredientId")
 
    useEffect(() => {
       const fetchData = async () => {
-        const result = await api.get(`/1/search.php?s=margarita`)
+        const result = await api.get(`/1/search.php?s=${getDetails}`)
         setData(result.data.drinks);
       };
       fetchData();
@@ -23,13 +21,12 @@ export default function Ingredients({ navigation }) {
 
 
    return(
-      <ScrollView style={{ flex: 1}}>
       <Container>
          {data.map(item => (
                <ContainerDrinks>
                      <View style={{ marginTop: 20, marginVertical: 10, justifyContent: 'center', alignItems: 'center' }}>
                         <Image
-                        style={{ width: 100, height: 90, }}
+                        style={{ width: 200, height: 200, borderRadius: 100 }}
                         source={{ uri: item.strDrinkThumb}}
                         />
                      </View>
@@ -54,7 +51,6 @@ export default function Ingredients({ navigation }) {
             </ContainerDrinks>
          ))}
       </Container>
-   </ScrollView>
    )
 
 }
@@ -64,5 +60,9 @@ export default function Ingredients({ navigation }) {
 
 
 Ingredients.navigationOptions = {
-   headerTitle: "Detalhes do Drink !"
+   headerTitle: "Detalhes do Drink",
+   headerStyle: {
+      backgroundColor: colors.lightgreen,
+    },
+   headerTintColor: colors.white,
 }

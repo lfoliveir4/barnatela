@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { View, Text, ScrollView, Button } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import api from '../../services/api'
+import colors from '../../styles/colors'
 
 import { Container, Item, TextButton, } from './styles'
 
@@ -32,5 +33,10 @@ export default function Category({ navigation }) {
 }
 
 Category.navigationOptions = {
-   headerTitle: "Categorias de Bebidas !"
+   headerTitle: "Categorias",
+   headerStyle: {
+      backgroundColor: colors.lightgreen,
+    },
+   headerTintColor: colors.white,
+   
  };

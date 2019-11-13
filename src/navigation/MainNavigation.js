@@ -17,7 +17,7 @@ const HomeStack = createStackNavigator(
     Ingredients: Ingredient
   },
   {
-    initialRouteName: "Ingredients",
+    initialRouteName: "Home",
     //headerMode: "none",
   },
   
