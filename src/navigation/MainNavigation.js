@@ -1,9 +1,6 @@
 import React from 'react';
-import { Platform } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack'
 import { createAppContainer } from 'react-navigation';
-
-
 
 
 import Category from '../screen/Category'
@@ -18,7 +15,6 @@ const HomeStack = createStackNavigator(
   },
   {
     initialRouteName: "Home",
-    //headerMode: "none",
   },
   
 );

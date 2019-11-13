@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, ScrollView, Image} from 'react-native'
 import colors from '../../styles/colors'
-
 import api from '../../services/api'
 
 import { Container, ContainerDrinks, TitleDrink, TitleIngredient, TextIngredient } from './styles'
@@ -23,6 +22,7 @@ export default function Ingredients({ navigation }) {
    return(
       <Container>
          {data.map(item => (
+            <ScrollView>
                <ContainerDrinks>
                      <View style={{ marginTop: 20, marginVertical: 10, justifyContent: 'center', alignItems: 'center' }}>
                         <Image
@@ -47,17 +47,13 @@ export default function Ingredients({ navigation }) {
                      <TextIngredient style={{ marginVertical: 2 }}>{item.strIngredient13}</TextIngredient>
                      <TextIngredient style={{ marginVertical: 2 }}>{item.strIngredient14}</TextIngredient>
                      <TextIngredient style={{ marginVertical: 2 }}>{item.strIngredient15}</TextIngredient>
-
             </ContainerDrinks>
+            </ScrollView>
          ))}
       </Container>
    )
 
 }
-
-
-
-
 
 Ingredients.navigationOptions = {
    headerTitle: "Detalhes do Drink",

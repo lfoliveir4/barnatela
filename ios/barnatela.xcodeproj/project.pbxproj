@@ -194,7 +194,6 @@
 				F697EBA6156895F32523D1F3 /* Pods-barnatelaTests.debug.xcconfig */,
 				752E434514461CEB995E2F90 /* Pods-barnatelaTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -308,6 +307,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

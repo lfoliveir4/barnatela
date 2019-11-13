@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, ScrollView, Button } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { View, Text, ScrollView, Button, TouchableOpacity } from 'react-native'
 import api from '../../services/api'
 import colors from '../../styles/colors'
 

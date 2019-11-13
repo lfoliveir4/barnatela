@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, ScrollView, Image, ImageBackground, Button, StyleSheet } from 'react-native'
-
+import { View, ScrollView, Image, Button, StyleSheet, } from 'react-native'
 import { Item, TextButton, Container,} from './styles'
+
 import colors from '../../styles/colors'
-
 import api from '../../services/api'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-
 
 function Separator() {
    return <View style={{ marginVertical: 8, borderBottomColor: '#737373', borderBottomWidth: StyleSheet.hairlineWidth,}} />
